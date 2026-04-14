@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raphael Lucas Assunção — Estagiar Globo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      animation: {
+        'fade-up': 'fadeUp 0.8s ease forwards',
+        'fade-in': 'fadeIn 1s ease forwards',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-12px)' },
+        }
+      }
+    }
+  }
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #0A0618;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    backdrop-filter: blur(16px);
+    background: rgba(10,6,24,0.88);
+    border-bottom: 1px solid rgba(109,40,217,0.22);
+    padding: 0.9rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem; font-weight: 700;
+    background: linear-gradient(90deg, #A78BFA, #F97316);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.55);
+    text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #F97316; }
+
+  /* ── ORBS ── */
+  .orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(90px); pointer-events: none; z-index: 0;
+  }
+  .orb-1 {
+    width: 620px; height: 620px;
+    background: radial-gradient(circle, rgba(76,29,158,0.52) 0%, transparent 70%);
+    top: -120px; left: -140px;
+    animation: float 8s ease-in-out infinite;
+  }
+  .orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(37,99,235,0.32) 0%, transparent 70%);
+    top: 60px; right: -120px;
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  .orb-3 {
+    width: 360px; height: 360px;
+    background: radial-gradient(circle, rgba(234,88,12,0.22) 0%, transparent 70%);
+    bottom: 0; right: 18%;
+    animation: float 7s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; padding: 7rem 2rem 4rem;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(109,40,217,0.18); border: 1px solid rgba(167,139,250,0.38);
+    border-radius: 999px; padding: 0.35rem 1rem;
+    font-size: 0.72rem; font-weight: 500; color: #C4B5FD;
+    letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease forwards;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #F97316; animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .hero-name {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 700; line-height: 0.95;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #fff 30%, #A78BFA 62%, #F97316 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 1.2rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-sub {
+    font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+    color: rgba(255,255,255,0.55); font-weight: 300;
+    max-width: 560px; line-height: 1.65; margin-bottom: 2.8rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-sub strong { color: #F97316; font-weight: 500; }
+  @keyframes fadeUp {
+    0% { opacity:0; transform:translateY(28px); }
+    100% { opacity:1; transform:translateY(0); }
+  }
+
+  /* Foto */
+  .photo-ring {
+    position: relative; width: 150px; height: 150px; margin-bottom: 2.2rem;
+    animation: fadeIn 1s 0.3s ease both;
+  }
+  @keyframes fadeIn { 0%{opacity:0} 100%{opacity:1} }
+  .photo-ring::before {
+    content: ''; position: absolute; inset: -4px; border-radius: 50%;
+    background: conic-gradient(from 0deg, #6D28D9, #2563EB, #F97316, #6D28D9);
+    animation: spin 4s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .photo-inner {
+    position: absolute; inset: 3px; border-radius: 50%;
+    background: linear-gradient(135deg, #1E1035, #0F1F4D);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden; border: 2px solid #0A0618;
+  }
+  .photo-inner img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+  .photo-placeholder {
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+  }
+  .photo-placeholder svg { opacity: 0.45; }
+  .photo-placeholder span {
+    font-size: 0.58rem; color: rgba(255,255,255,0.3);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+
+  /* CTAs */
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .btn-primary {
+    padding: 0.72rem 2rem; border-radius: 999px;
+    background: linear-gradient(135deg, #6D28D9, #2563EB);
+    color: #fff; font-size: 0.88rem; font-weight: 500;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 28px rgba(109,40,217,0.38);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 40px rgba(109,40,217,0.58); }
+  .btn-outline {
+    padding: 0.72rem 2rem; border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.7); font-size: 0.88rem; font-weight: 500;
+    text-decoration: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: #F97316; color: #F97316; }
+
+  .scroll-hint {
+    position: absolute; bottom: 1.8rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    color: rgba(255,255,255,0.25); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    animation: fadeIn 1.5s 1s ease both;
+  }
+  .scroll-line {
+    width: 1px; height: 36px;
+    background: linear-gradient(to bottom, rgba(109,40,217,0.8), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  /* ── SECTIONS ── */
+  section { position: relative; overflow: hidden; padding: 7rem 2rem; }
+  .section-inner { max-width: 1080px; margin: 0 auto; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #F97316; margin-bottom: 0.85rem;
+  }
+  .section-label .line { display:block; width:26px; height:1px; background:#F97316; }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 1rem;
+  }
+  .section-desc {
+    font-size: 0.97rem; color: rgba(255,255,255,0.48);
+    max-width: 510px; line-height: 1.72; margin-bottom: 3.2rem;
+  }
+  .deco-num {
+    position: absolute; top: 2.5rem; right: 1.5rem;
+    font-family: 'Fraunces', serif; font-size: 8rem; font-weight: 700;
+    color: rgba(255,255,255,0.024); line-height: 1; pointer-events: none;
+  }
+
+  /* ── SECTION 1 ── */
+  #trajetoria { background: #0A0618; }
+  #trajetoria::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(76,29,158,0.11) 0%, transparent 60%);
+  }
+
+  .stat-row { display:flex; gap:2.8rem; flex-wrap:wrap; margin-bottom:3.2rem; }
+  .stat-num {
+    font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 700;
+    line-height: 1; letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #A78BFA, #60A5FA);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .stat-label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.38);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-top: 0.2rem;
+  }
+
+  .ornaline {
+    display:flex; align-items:center; gap:1rem; margin: 0 0 3.5rem;
+  }
+  .ornaline::before,.ornaline::after {
+    content:''; flex:1; height:1px;
+    background: linear-gradient(90deg, transparent, rgba(109,40,217,0.38), transparent);
+  }
+  .ornaline span { font-size:0.65rem; color:rgba(255,255,255,0.18); letter-spacing:0.15em; }
+
+  /* timeline */
+  .timeline { position:relative; padding-left:2rem; }
+  .timeline::before {
+    content:''; position:absolute; left:0; top:0; bottom:0; width:1px;
+    background: linear-gradient(to bottom, #6D28D9, #2563EB, rgba(37,99,235,0.08));
+  }
+  .timeline-item {
+    position:relative; margin-bottom:2.4rem; padding-left:1.5rem;
+    opacity:0; transform:translateX(-18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .timeline-item.visible { opacity:1; transform:translateX(0); }
+  .timeline-dot {
+    position:absolute; left:-2.35rem; top:5px;
+    width:13px; height:13px; border-radius:50%;
+    background: linear-gradient(135deg, #6D28D9, #2563EB);
+    border:2px solid #0A0618;
+    box-shadow: 0 0 10px rgba(109,40,217,0.55);
+  }
+  .timeline-year {
+    font-size:0.7rem; font-weight:500; color:#A78BFA;
+    letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.28rem;
+  }
+  .timeline-event {
+    font-family:'Fraunces',serif; font-size:1.18rem; font-weight:700;
+    color:#fff; margin-bottom:0.38rem; line-height:1.2;
+  }
+  .timeline-desc {
+    font-size:0.87rem; color:rgba(255,255,255,0.46); line-height:1.68;
+  }
+  .highlight-tag {
+    display:inline-block; background:rgba(234,88,12,0.14);
+    border:1px solid rgba(249,115,22,0.28);
+    color:#FB923C; font-size:0.72rem; font-weight:500;
+    padding:0.18rem 0.55rem; border-radius:999px;
+    letter-spacing:0.04em; margin-left:0.4rem; vertical-align:middle;
+    font-family:'DM Sans',sans-serif;
+  }
+
+  /* trait cards */
+  .trait-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1rem; margin-top:3.5rem;
+  }
+  .trait-card {
+    background:rgba(255,255,255,0.028); border:1px solid rgba(255,255,255,0.07);
+    border-radius:16px; padding:1.4rem;
+    opacity:0; transform:translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s, background 0.3s;
+  }
+  .trait-card.visible { opacity:1; transform:translateY(0); }
+  .trait-card:hover { border-color:rgba(109,40,217,0.45); background:rgba(109,40,217,0.05); }
+  .trait-icon {
+    width:38px; height:38px; border-radius:10px; margin-bottom:0.9rem;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,rgba(109,40,217,0.28),rgba(37,99,235,0.18));
+  }
+  .trait-title { font-weight:500; font-size:0.92rem; margin-bottom:0.3rem; }
+  .trait-text { font-size:0.8rem; color:rgba(255,255,255,0.42); line-height:1.62; }
+
+  /* ── SECTION 2 ── */
+  #motivacoes {
+    background: linear-gradient(180deg, #0A0618 0%, #0D0B2A 50%, #0A0618 100%);
+  }
+
+  .values-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+    gap:1.2rem; margin-bottom:3.5rem;
+  }
+  .value-card {
+    position:relative; border-radius:20px; padding:2rem;
+    border:1px solid rgba(255,255,255,0.07);
+    background:rgba(255,255,255,0.02);
+    overflow:hidden;
+    opacity:0; transform:translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .value-card.visible { opacity:1; transform:translateY(0); }
+  .value-card:hover { transform:translateY(-4px) !important; }
+  .value-card::before {
+    content:''; position:absolute; inset:0; border-radius:20px; opacity:0.08;
+  }
+  .value-card.purple::before { background:linear-gradient(135deg,#6D28D9,transparent); }
+  .value-card.blue::before { background:linear-gradient(135deg,#2563EB,transparent); }
+  .value-card.orange::before { background:linear-gradient(135deg,#EA580C,transparent); }
+  .value-num {
+    font-family:'Fraunces',serif; font-size:2.8rem; font-weight:700;
+    line-height:1; margin-bottom:0.65rem;
+  }
+  .value-card.purple .value-num { background:linear-gradient(90deg,#A78BFA,#7C3AED); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .value-card.blue .value-num { background:linear-gradient(90deg,#93C5FD,#3B82F6); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .value-card.orange .value-num { background:linear-gradient(90deg,#FED7AA,#F97316); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .value-title {
+    font-family:'Fraunces',serif; font-size:1.22rem; font-weight:700;
+    margin-bottom:0.55rem; color:#fff;
+  }
+  .value-text { font-size:0.86rem; color:rgba(255,255,255,0.48); line-height:1.72; }
+
+  .globo-connect {
+    background:linear-gradient(135deg,rgba(109,40,217,0.14),rgba(37,99,235,0.09));
+    border:1px solid rgba(109,40,217,0.28);
+    border-radius:22px; padding:2.4rem 2.8rem;
+    position:relative; overflow:hidden;
+    opacity:0; transform:translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .globo-connect.visible { opacity:1; transform:translateY(0); }
+  .globo-connect::before {
+    content:''; position:absolute; top:-50%; right:-10%;
+    width:380px; height:380px; border-radius:50%;
+    background:radial-gradient(circle, rgba(234,88,12,0.07), transparent 70%);
+  }
+  .globo-connect-title {
+    font-family:'Fraunces',serif; font-size:1.5rem; font-weight:700;
+    margin-bottom:0.9rem; line-height:1.2;
+  }
+  .globo-connect-title span { color:#F97316; font-style:italic; }
+  .globo-connect-text {
+    font-size:0.93rem; color:rgba(255,255,255,0.52);
+    line-height:1.78; max-width:680px;
+  }
+
+  /* ── SECTION 3 ── */
+  #area { background:#0A0618; }
+  #area::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 20% 60%, rgba(37,99,235,0.09) 0%, transparent 55%);
+  }
+
+  .area-split {
+    display:grid; grid-template-columns:1fr 1fr; gap:3.8rem; align-items:start;
+  }
+
+  .skill-bar-wrap { margin-bottom:1.1rem; }
+  .skill-bar-label {
+    display:flex; justify-content:space-between;
+    font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:0.38rem;
+  }
+  .skill-bar-label span:last-child { color:#A78BFA; font-weight:500; }
+  .skill-bar-track {
+    height:4px; border-radius:999px;
+    background:rgba(255,255,255,0.08); overflow:hidden;
+  }
+  .skill-bar-fill {
+    height:100%; border-radius:999px; width:0%;
+    transition:width 1.3s cubic-bezier(0.4,0,0.2,1);
+    background:linear-gradient(90deg,#6D28D9,#2563EB);
+  }
+  .skill-bar-fill.orange { background:linear-gradient(90deg,#EA580C,#F97316); }
+
+  .contrib-list { display:flex; flex-direction:column; gap:0.9rem; }
+  .contrib-item {
+    display:flex; gap:0.9rem; align-items:flex-start;
+    padding:1.15rem; border-radius:14px;
+    border:1px solid rgba(255,255,255,0.07);
+    background:rgba(255,255,255,0.02);
+    opacity:0; transform:translateX(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .contrib-item.visible { opacity:1; transform:translateX(0); }
+  .contrib-icon {
+    width:34px; height:34px; border-radius:9px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg,rgba(234,88,12,0.22),rgba(249,115,22,0.12));
+  }
+  .contrib-title { font-size:0.88rem; font-weight:500; margin-bottom:0.22rem; }
+  .contrib-text { font-size:0.78rem; color:rgba(255,255,255,0.4); line-height:1.62; }
+
+  .quote-block {
+    margin-top:2.8rem; padding:1.8rem;
+    border-left:3px solid #6D28D9;
+    background:rgba(109,40,217,0.065); border-radius:0 14px 14px 0;
+    font-family:'Fraunces',serif; font-size:1.12rem; font-style:italic;
+    color:rgba(255,255,255,0.72); line-height:1.7;
+    opacity:0; transform:translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .quote-block.visible { opacity:1; transform:translateY(0); }
+  .quote-block cite {
+    display:block; margin-top:0.7rem; font-style:normal;
+    font-family:'DM Sans',sans-serif;
+    font-size:0.74rem; color:rgba(255,255,255,0.3); letter-spacing:0.06em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background:#060410;
+    border-top:1px solid rgba(109,40,217,0.18);
+    padding:2.8rem 2rem;
+  }
+  .footer-inner {
+    max-width:1080px; margin:0 auto;
+    display:flex; flex-direction:column; align-items:center;
+    gap:1.4rem; text-align:center;
+  }
+  .footer-logo {
+    font-family:'Fraunces',serif; font-size:1.4rem; font-weight:700;
+    background:linear-gradient(90deg,#A78BFA,#F97316);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  }
+  .footer-links { display:flex; gap:1.4rem; flex-wrap:wrap; justify-content:center; }
+  .footer-links a {
+    display:flex; align-items:center; gap:0.4rem;
+    color:rgba(255,255,255,0.38); font-size:0.8rem;
+    text-decoration:none; transition:color 0.2s;
+  }
+  .footer-links a:hover { color:#F97316; }
+  .footer-copy { font-size:0.72rem; color:rgba(255,255,255,0.18); letter-spacing:0.04em; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:768px) {
+    .nav-links { display:none; }
+    .area-split { grid-template-columns:1fr; gap:2.5rem; }
+    .hero-name { font-size:clamp(2.6rem,12vw,4.5rem); }
+    .globo-connect { padding:1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Raphael Lucas Assunção Gomes Da Silva</span>
+  <div class="nav-links">
+    <a href="#trajetoria">Trajetória</a>
+    <a href="#motivacoes">Motivações</a>
+    <a href="#area">Área</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section id="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-badge" style="z-index:1">
+    <span class="dot"></span>
+    Estagiar Globo 2026
+  </div>
+
+  <!-- Foto -->
+  <div class="photo-ring" style="z-index:1">
+    <div class="photo-inner">
+  <img src="./1682701776452.jpg" alt="Foto de Raphael Lucas Assunção" />
+</div>
+      <div class="photo-placeholder">
+        <!-- <svg width="44" height="44" fill="none" viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="4" stroke="rgba(167,139,250,0.65)" stroke-width="1.5"/>
+          <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="rgba(167,139,250,0.65)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg> -->
+        <span>Raphael L. A.</span>
+      </div>
+  </div>
+
+  <h1 class="hero-name" style="z-index:1">
+    Raphael<br>Lucas Assunção
+  </h1>
+
+  <p class="hero-sub" style="z-index:1">
+    Business Intelligence · Editora Globo · Rio de Janeiro, RJ<br>
+    Movido por <strong>dados, estratégia e impacto real</strong> —<br>
+    transformando informação em decisões que conectam a Globo ao seu público.
+  </p>
+
+  <div class="hero-cta" style="z-index:1">
+    <a href="#trajetoria" class="btn-primary">Ver minha trajetória</a>
+    <a href="#area" class="btn-outline">Por que a Globo</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     SEÇÃO 1 — TRAJETÓRIA
+══════════════════════════════ -->
+<section id="trajetoria">
+  <span class="deco-num">01</span>
+  <div class="section-inner" style="position:relative;z-index:1">
+
+    <div class="section-label">
+      <span class="line"></span>
+      Quem sou eu
+    </div>
+
+    <h2 class="section-title">
+      Como eu me<br>apresento hoje
+    </h2>
+
+    <p class="section-desc">
+      24 anos, carioca, apaixonado por tecnologia desde criança. Minha trajetória conecta
+      design, inteligência de negócios e análise de dados — e hoje isso tudo converge dentro da
+      própria Globo.
+    </p>
+
+    <!-- Números rápidos -->
+    <div class="stat-row">
+      <div>
+        <div class="stat-num">1+</div>
+        <div class="stat-label">Ano na Editora Globo</div>
+      </div>
+      <div>
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Ferramentas de BI & Analytics</div>
+      </div>
+      <div>
+        <div class="stat-num">19,9%</div>
+        <div class="stat-label">de crescimento de CTR em SEO</div>
+      </div>
+    </div>
+
+    <div class="ornaline"><span>trajetória</span></div>
+
+    <!-- LINHA DO TEMPO -->
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Origem — Rio de Janeiro, RJ</div>
+        <div class="timeline-event">Filho de um técnico em informática</div>
+        <div class="timeline-desc">
+          Cresci rodeado de computadores e curiosidade. Meu pai, técnico em informática,
+          me apresentou desde cedo ao universo da tecnologia — e foi ali que comecei a
+          entender como dados, pessoas e inovação se conectam para gerar transformação real.
+          Essa curiosidade nunca foi embora; ela só foi crescendo e ganhando forma.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">2018 – 2020 — Formação criativa</div>
+        <div class="timeline-event">Design Gráfico <span class="highlight-tag">Gracom Escola de Efeitos Visuais</span></div>
+        <div class="timeline-desc">
+          Aprendi a enxergar além do dado bruto: desenvolvi sensibilidade para visualização,
+          hierarquia da informação e storytelling visual. Essa base criativa moldou a forma
+          como construo dashboards e relatórios até hoje — sempre com clareza e impacto em mente.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Jan/2023 – Ago/2024 — Primeiro projeto com dados</div>
+        <div class="timeline-event">Freelancer de SEO & Performance Digital <span class="highlight-tag">Espaço Recomeçar</span></div>
+        <div class="timeline-desc">
+          Minha primeira imersão em análise de dados aplicada a negócio. Trabalhei com
+          Google Analytics, Search Console e planilhas de monitoramento, entregando resultados
+          concretos: aumento de CTR em 19,9% e crescimento de impressões em 13,86%. Foi aqui
+          que aprendi que dado sem ação é só número — o valor está na decisão que ele orienta.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Jan/2025 – Atual — Formação em curso</div>
+        <div class="timeline-event">CST em Marketing Digital e Data Science <span class="highlight-tag">Cruzeiro do Sul Virtual</span></div>
+        <div class="timeline-desc">
+          Integro estratégia, comportamento do consumidor e análise de dados em uma formação
+          que complementa diretamente minha atuação prática em BI — com formatura prevista
+          para junho de 2027.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Mar/2025 – Atual — Presente</div>
+        <div class="timeline-event">Estagiário de Inteligência de Negócios (BI) <span class="highlight-tag">Editora Globo</span></div>
+        <div class="timeline-desc">
+          Na vertical de jornais da Editora Globo, sou responsável por análises de audiência
+          e performance digital, construção de dashboards no Looker Studio, relatórios
+          recorrentes com insights acionáveis e automação de processos via Python e APIs.
+          Trabalho com SQL, Google Analytics, Google Search Console, Similarweb e Comscore —
+          apoiando decisões estratégicas com dados confiáveis e comunicação clara.
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <!-- Cards de traços -->
+    <div class="trait-grid" style="margin-top:4rem">
+
+      <div class="trait-card">
+        <div class="trait-icon">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24">
+            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#A78BFA" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="trait-title">Curioso por natureza</div>
+        <div class="trait-text">
+          Sempre busco entender o porquê por trás de cada dado. A curiosidade que aprendi
+          do meu pai virou meu maior motor profissional.
+        </div>
+      </div>
+
+      <div class="trait-card">
+        <div class="trait-icon">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="9" cy="7" r="4" stroke="#60A5FA" stroke-width="1.5"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="trait-title">Comunicação clara</div>
+        <div class="trait-text">
+          Traduzo análises complexas em linguagem acessível para diferentes áreas do negócio —
+          da redação ao time comercial.
+        </div>
+      </div>
+
+      <div class="trait-card">
+        <div class="trait-icon">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4" stroke="#34D399" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="#34D399" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="trait-title">Orientado a resultado</div>
+        <div class="trait-text">
+          Não me satisfaço com a análise pela análise — busco sempre o insight que orienta
+          uma decisão concreta e gera impacto real.
+        </div>
+      </div>
+
+      <div class="trait-card">
+        <div class="trait-icon">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="trait-title">Visão data-driven</div>
+        <div class="trait-text">
+          Combino background criativo em design com mentalidade analítica — storytelling
+          visual e dados caminham juntos em tudo que entrego.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     SEÇÃO 2 — MOTIVAÇÕES & GLOBO
+══════════════════════════════ -->
+<section id="motivacoes">
+  <span class="deco-num">02</span>
+  <div class="section-inner" style="position:relative;z-index:1">
+
+    <div class="section-label">
+      <span class="line"></span>
+      O que me move
+    </div>
+
+    <h2 class="section-title">
+      O que me impulsiona<br>e a conexão com a Globo
+    </h2>
+
+    <p class="section-desc">
+      Meus valores não são acidentais — são o resultado de cada experiência que me ensinou
+      a unir estratégia, criatividade e impacto. É exatamente isso que me conecta à missão da Globo.
+    </p>
+
+    <div class="values-grid">
+
+      <div class="value-card purple">
+        <div class="value-num">01</div>
+        <div class="value-title">Dados como ponte entre pessoas</div>
+        <div class="value-text">
+          Acredito que dado bem interpretado não é só número em um dashboard — é uma
+          história sobre o comportamento humano. Desde o início da minha trajetória, aprendi
+          que o verdadeiro valor da análise está em seu poder de conectar pessoas, entender
+          audiências e orientar decisões que impactam vidas reais.
+        </div>
+      </div>
+
+      <div class="value-card blue">
+        <div class="value-num">02</div>
+        <div class="value-title">Estratégia com propósito</div>
+        <div class="value-text">
+          Sou movido pela interseção entre criatividade e análise. Meu background em design
+          me ensinou a enxergar padrões e comunicar complexidade com clareza — e hoje isso
+          se traduz em relatórios e dashboards que de fato orientam decisões estratégicas,
+          não apenas registram o passado.
+        </div>
+      </div>
+
+      <div class="value-card orange">
+        <div class="value-num">03</div>
+        <div class="value-title">Inovação contínua</div>
+        <div class="value-text">
+          Vivo em aprendizado constante — SQL, Python, APIs, novas ferramentas de visualização.
+          Não por obrigação, mas porque entendo que em um mercado de mídia em transformação
+          acelerada, quem para de aprender para de contribuir. Quero crescer junto com a Globo.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Conexão com a Globo -->
+    <div class="globo-connect">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.1rem">
+        <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#6D28D9,#EA580C);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+            <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span style="font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.38)">
+          Conexão com a Globo
+        </span>
+      </div>
+
+      <h3 class="globo-connect-title">
+        Como minha visão pode<br>
+        <span>fortalecer a Globo</span>
+      </h3>
+
+      <p class="globo-connect-text">
+        A Globo conecta o Brasil há décadas — e em um momento em que audiências se fragmentam
+        e o comportamento digital muda mais rápido do que qualquer modelo tradicional consegue
+        acompanhar, acredito que minha experiência dentro da própria Editora Globo me coloca
+        em uma posição única: já entendo a cultura, já conheço os dados e já sei como o
+        negócio pensa.<br><br>
+        Minha contribuição está em usar esse olhar interno aliado à visão de quem cresceu
+        consumindo conteúdo Globo como espectador — combinando inteligência de audiência,
+        automação e storytelling visual para ajudar a empresa a se conectar de forma ainda
+        mais profunda com públicos que estão sempre em evolução.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     SEÇÃO 3 — ÁREA DE BI
+══════════════════════════════ -->
+<section id="area">
+  <span class="deco-num">03</span>
+  <div class="section-inner" style="position:relative;z-index:1">
+
+    <div class="section-label">
+      <span class="line"></span>
+      Por que esta área
+    </div>
+
+    <h2 class="section-title">
+      Minha trajetória<br>em <span style="color:#A78BFA;font-style:italic">Business Intelligence</span>
+    </h2>
+
+    <div class="area-split">
+
+      <!-- ESQUERDA -->
+      <div>
+        <p style="font-size:0.94rem;color:rgba(255,255,255,0.48);line-height:1.78;margin-bottom:2.4rem">
+          Meu interesse por BI nasceu naturalmente da interseção entre três mundos que já
+          dominava: design (visualização e comunicação), marketing digital (comportamento
+          e performance) e tecnologia (automação e dados). Quando percebi que Business
+          Intelligence era exatamente essa junção — com impacto direto nas decisões de
+          negócio — soube que era o caminho certo. E o estágio na Editora Globo confirmou isso.
+        </p>
+
+        <div style="margin-bottom:2rem">
+          <p style="font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:1.1rem">
+            Habilidades técnicas
+          </p>
+
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>SQL & Consultas analíticas</span><span>85%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Looker Studio / Power BI</span><span>80%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="80"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Python (automação e APIs)</span><span>72%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Google Analytics / Search Console</span><span>88%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill orange" data-width="88"></div></div>
+          </div>
+          <div class="skill-bar-wrap">
+            <div class="skill-bar-label"><span>Similarweb / Comscore / Inteligência competitiva</span><span>78%</span></div>
+            <div class="skill-bar-track"><div class="skill-bar-fill orange" data-width="78"></div></div>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          "Quero ajudar a Globo a transformar dados de audiência em pontes reais entre
+          seus conteúdos e os públicos que ainda estão por conquistar."
+          <cite>— Raphael Lucas Assunção, candidato ao Estagiar Globo 2026</cite>
+        </div>
+      </div>
+
+      <!-- DIREITA -->
+      <div>
+        <p style="font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.28);margin-bottom:1.1rem">
+          Como imagino contribuindo na prática
+        </p>
+
+        <div class="contrib-list">
+
+          <div class="contrib-item">
+            <div class="contrib-icon">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24">
+                <path d="M18 20V10M12 20V4M6 20v-6" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contrib-title">Insights acionáveis de audiência</div>
+              <div class="contrib-text">
+                Já monitoro KPIs de audiência digital na vertical de jornais. Quero expandir
+                esse olhar para outros produtos Globo, identificando padrões e oportunidades
+                que ainda não estão sendo aproveitadas.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="#F97316" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contrib-title">Automação de processos analíticos</div>
+              <div class="contrib-text">
+                Uso Python e integração de APIs para automatizar coletas e tratamentos de
+                dados que hoje consomem tempo da equipe — liberando o time para análise
+                estratégica de maior valor.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7" rx="1" stroke="#F97316" stroke-width="1.5"/>
+                <rect x="14" y="3" width="7" height="7" rx="1" stroke="#F97316" stroke-width="1.5"/>
+                <rect x="3" y="14" width="7" height="7" rx="1" stroke="#F97316" stroke-width="1.5"/>
+                <rect x="14" y="14" width="7" height="7" rx="1" stroke="#F97316" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contrib-title">Dashboards que realmente comunicam</div>
+              <div class="contrib-text">
+                Minha formação em design me diferencia: não construo dashboards apenas
+                funcionais — construo dashboards que qualquer área do negócio consegue
+                ler e usar para decidir com confiança.
+              </div>
+            </div>
+          </div>
+
+          <div class="contrib-item">
+            <div class="contrib-icon">
+              <svg width="15" height="15" fill="none" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="#F97316" stroke-width="1.5"/>
+                <path d="M12 8v4l3 3" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contrib-title">Olhar de dentro e de fora ao mesmo tempo</div>
+              <div class="contrib-text">
+                Já faço parte da Globo e entendo sua cultura. Mas também trago o olhar
+                de quem cresceu como consumidor apaixonado pelo conteúdo da empresa —
+                uma perspectiva que poucos estagiários podem oferecer.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-logo">Raphael Lucas Assunção</div>
+
+    <p style="font-size:0.8rem;color:rgba(255,255,255,0.28);max-width:400px;line-height:1.65;text-align:center">
+      Estagiar Globo 2026 — Apresentação de Raphael Lucas Assunção<br>
+      Business Intelligence · Editora Globo · Rio de Janeiro, RJ
+    </p>
+
+    <div class="footer-links">
+      <a href="https://linkedin.com/in/raphaellucasassuncao" target="_blank">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24">
+          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        linkedin.com/in/raphaellucasassuncao
+      </a>
+      <a href="mailto:raphael.assuncaodev@gmail.com">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        raphael.assuncaodev@gmail.com
+      </a>
+      <a href="tel:+5521967778223">
+        <svg width="13" height="13" fill="none" viewBox="0 0 24 24">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.09-1.09a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        +55 21 96777-8223
+      </a>
+    </div>
+
+    <div class="footer-copy">
+      Feito com intenção e dados · Estagiar Globo 2026
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.14 });
+
+  document.querySelectorAll(
+    '.timeline-item, .trait-card, .value-card, .globo-connect, .contrib-item, .quote-block'
+  ).forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 0.09 + 's';
+    observer.observe(el);
+  });
+
+  // Skill bars
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-width') + '%';
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const areaSection = document.getElementById('area');
+  if (areaSection) skillObserver.observe(areaSection);
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Parallax suave nas orbs
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    [0.14, 0.09, 0.18].forEach((speed, i) => {
+      const orb = document.querySelectorAll('.orb')[i];
+      if (orb) orb.style.transform = `translateY(${y * speed}px)`;
+    });
+  });
+</script>
+</body>
+</html>
